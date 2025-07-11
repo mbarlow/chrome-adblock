@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chrome AdBlock</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="popup-container">
+        <!-- Header -->
+        <header class="popup-header">
+            <div class="logo">
+                <img src="../assets/icons/icon32.png" alt="Chrome AdBlock" class="logo-icon">
+                <h1 class="title">Chrome AdBlock</h1>
+            </div>
+            <div class="status-indicator" id="statusIndicator">
+                <div class="status-dot" id="statusDot"></div>
+            </div>
+        </header>
+
+        <!-- Main Toggle -->
+        <div class="main-toggle" id="mainToggle">
+            <div class="toggle-content">
+                <div class="toggle-text">
+                    <span id="toggleLabel">Enabled on this site</span>
+                    <span class="toggle-subtitle" id="toggleSubtitle">Blocking ads and trackers</span>
+                </div>
+                <div class="toggle-switch">
+                    <input type="checkbox" id="extensionToggle" checked>
+                    <label for="extensionToggle" class="switch"></label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Statistics -->
+        <div class="stats-section">
+            <div class="stat-item">
+                <div class="stat-number" id="blockedToday">0</div>
+                <div class="stat-label">Blocked today</div>
+            </div>
+            <div class="stat-divider"></div>
+            <div class="stat-item">
+                <div class="stat-number" id="blockedTotal">0</div>
+                <div class="stat-label">Blocked total</div>
+            </div>
+        </div>
+
+        <!-- Current Site Info -->
+        <div class="site-info" id="siteInfo">
+            <div class="site-details">
+                <div class="site-url" id="siteUrl">Loading...</div>
+                <div class="site-status" id="siteStatus">
+                    <span class="status-icon" id="siteStatusIcon">🛡️</span>
+                    <span id="siteStatusText">Protected</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <button class="action-btn whitelist-btn" id="whitelistBtn">
+                <span class="btn-icon">⭐</span>
+                <span class="btn-text" id="whitelistText">Whitelist this site</span>
+            </button>
+        </div>
+
+        <!-- Quick Actions -->
+        <div class="quick-actions">
+            <button class="quick-action-btn" id="settingsBtn" title="Settings">
+                <span class="btn-icon">⚙️</span>
+                <span class="btn-label">Settings</span>
+            </button>
+            <button class="quick-action-btn" id="statisticsBtn" title="Statistics">
+                <span class="btn-icon">📊</span>
+                <span class="btn-label">Statistics</span>
+            </button>
+            <button class="quick-action-btn" id="refreshBtn" title="Refresh filters">
+                <span class="btn-icon">🔄</span>
+                <span class="btn-label">Refresh</span>
+            </button>
+        </div>
+
+        <!-- Loading Overlay -->
+        <div class="loading-overlay" id="loadingOverlay">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">Loading...</div>
+        </div>
+
+        <!-- Error Message -->
+        <div class="error-message" id="errorMessage">
+            <div class="error-icon">⚠️</div>
+            <div class="error-text" id="errorText">An error occurred</div>
+            <button class="error-close" id="errorClose">×</button>
+        </div>
+
+        <!-- Success Message -->
+        <div class="success-message" id="successMessage">
+            <div class="success-icon">✅</div>
+            <div class="success-text" id="successText">Action completed</div>
+            <button class="success-close" id="successClose">×</button>
+        </div>
+
+        <!-- Footer -->
+        <footer class="popup-footer">
+            <div class="footer-info">
+                <span class="version">v1.0.0</span>
+                <span class="separator">•</span>
+                <a href="#" id="helpLink" class="help-link">Help</a>
+            </div>
+        </footer>
+
+        <!-- Context Menu -->
+        <div class="context-menu" id="contextMenu">
+            <div class="context-item" id="copyUrlBtn">Copy URL</div>
+            <div class="context-item" id="reportSiteBtn">Report Issue</div>
+            <div class="context-separator"></div>
+            <div class="context-item" id="debugModeBtn">Debug Mode</div>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>

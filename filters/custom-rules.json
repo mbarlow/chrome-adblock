@@ -1,0 +1,136 @@
+{
+  "rules": [],
+  "cosmetic_rules": [],
+  "description": "Custom user-defined rules for Chrome AdBlock extension",
+  "version": "1.0.0",
+  "lastUpdated": "2024-01-01T00:00:00Z",
+  "metadata": {
+    "totalRules": 0,
+    "cosmeticRules": 0,
+    "networkRules": 0,
+    "allowRules": 0,
+    "blockRules": 0
+  },
+  "examples": {
+    "network_filters": [
+      {
+        "description": "Block domain",
+        "rule": "||example.com^",
+        "syntax": "||domain^ blocks all requests to domain"
+      },
+      {
+        "description": "Allow domain (whitelist)",
+        "rule": "@@||example.com^",
+        "syntax": "@@ prefix creates exception rule"
+      },
+      {
+        "description": "Block URL pattern",
+        "rule": "example.com/ads/*",
+        "syntax": "URL pattern with wildcards"
+      },
+      {
+        "description": "Block third-party requests",
+        "rule": "||ads.example.com$third-party",
+        "syntax": "$third-party option blocks only third-party requests"
+      },
+      {
+        "description": "Block specific resource types",
+        "rule": "||tracking.com$script,image",
+        "syntax": "$script,image blocks only scripts and images"
+      },
+      {
+        "description": "Block on specific domains",
+        "rule": "||ads.com$domain=example.com|test.com",
+        "syntax": "$domain= restricts rule to specific initiator domains"
+      }
+    ],
+    "cosmetic_filters": [
+      {
+        "description": "Hide element by class",
+        "rule": "##.ad-banner",
+        "syntax": "## prefix for element hiding rules"
+      },
+      {
+        "description": "Hide element on specific domain",
+        "rule": "example.com##.sidebar-ad",
+        "syntax": "domain## prefix for domain-specific hiding"
+      },
+      {
+        "description": "Hide element by ID",
+        "rule": "##div[id=\"advertisement\"]",
+        "syntax": "CSS selector syntax supported"
+      },
+      {
+        "description": "Unhide element",
+        "rule": "#@#.content",
+        "syntax": "#@# prefix creates exception (unhiding) rule"
+      },
+      {
+        "description": "Multiple domains",
+        "rule": "site1.com,site2.com##.ad-container",
+        "syntax": "Comma-separated domains"
+      }
+    ]
+  },
+  "syntax_reference": {
+    "network_filters": {
+      "basic_patterns": {
+        "||domain^": "Block domain exactly",
+        "||domain": "Block domain and subdomains",
+        "|http://": "Match beginning of URL",
+        "path|": "Match end of URL",
+        "*": "Wildcard (any characters)",
+        "^": "Separator character"
+      },
+      "options": {
+        "$third-party": "Block only third-party requests",
+        "$~third-party": "Block only first-party requests",
+        "$script": "Block only scripts",
+        "$image": "Block only images",
+        "$stylesheet": "Block only stylesheets",
+        "$object": "Block only objects (Flash, etc.)",
+        "$xmlhttprequest": "Block only XHR requests",
+        "$subdocument": "Block only frames/iframes",
+        "$document": "Block only main documents",
+        "$domain=": "Apply only on specified domains",
+        "$important": "Higher priority rule"
+      },
+      "exceptions": {
+        "@@": "Exception rule prefix (whitelist)"
+      }
+    },
+    "cosmetic_filters": {
+      "element_hiding": {
+        "##selector": "Hide elements matching CSS selector",
+        "domain##selector": "Hide on specific domain only",
+        "domain1,domain2##selector": "Hide on multiple domains",
+        "#@#selector": "Exception rule (unhide elements)"
+      },
+      "css_selectors": {
+        ".class": "Select by class name",
+        "#id": "Select by ID",
+        "tag": "Select by tag name",
+        "[attribute]": "Select by attribute",
+        "[attribute=\"value\"]": "Select by attribute value",
+        ":contains(text)": "Select elements containing text",
+        ":has(selector)": "Select elements containing child",
+        "parent > child": "Direct child selector",
+        "ancestor descendant": "Descendant selector"
+      }
+    }
+  },
+  "validation": {
+    "enabled": true,
+    "strict_mode": false,
+    "check_syntax": true,
+    "warn_duplicates": true,
+    "check_performance": true
+  },
+  "settings": {
+    "auto_validate": true,
+    "case_sensitive": false,
+    "enable_regex": false,
+    "max_rules": 1000,
+    "backup_on_change": true
+  }
+}

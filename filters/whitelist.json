@@ -1,0 +1,44 @@
+{
+  "whitelist": [
+    "localhost",
+    "127.0.0.1",
+    "chrome-extension://",
+    "chrome://",
+    "moz-extension://",
+    "about:"
+  ],
+  "description": "Default whitelist for Chrome AdBlock extension",
+  "version": "1.0.0",
+  "lastUpdated": "2024-01-01T00:00:00Z",
+  "notes": [
+    "This file contains domains that are whitelisted by default",
+    "Local development domains and browser internal pages are included",
+    "Users can add additional domains through the extension interface"
+  ],
+  "categories": {
+    "development": [
+      "localhost",
+      "127.0.0.1",
+      "::1",
+      "local.test",
+      "*.local"
+    ],
+    "browser_internal": [
+      "chrome://",
+      "chrome-extension://",
+      "moz-extension://",
+      "about:",
+      "edge://",
+      "opera://",
+      "vivaldi://",
+      "brave://"
+    ],
+    "essential_services": []
+  },
+  "settings": {
+    "allowLocalhost": true,
+    "allowBrowserPages": true,
+    "allowExtensionPages": true,
+    "caseSensitive": false
+  }
+}
